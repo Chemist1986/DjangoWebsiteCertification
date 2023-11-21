@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if recipe.pk %}
+        Редактирование рецепта
+    {% else %}
+        Создание нового рецепта
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h2>{% if recipe.pk %}Редактирование рецепта{% else %}Создание нового рецепта{% endif %}</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div class="mb-3">
+        <label for="{{ form.categories.id_for_label }}">Категории:</label>
+        {{ form.categories }}
+    </div>
+    
+    <button type="submit">{% if recipe.pk %}Сохранить{% else %}Создать{% endif %}</button>
+  </form>
+  {% if recipe.pk %}
+    <a href="{% url 'recipe_detail' pk=recipe.pk %}">Подробнее</a>
+  {% endif %}
+  {{ recipe.pk }}
+{% endblock %}

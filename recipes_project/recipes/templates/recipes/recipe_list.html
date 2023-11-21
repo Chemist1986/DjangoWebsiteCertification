@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h2>Главная</h2>
+    {# Здесь вы можете отобразить 5 случайных рецептов #}
+    {% for recipe in recipes %}
+        <h3>{{ recipe.title }}</h3>
+        <p>{{ recipe.description }}</p>
+        <a href="{% url 'recipe_detail' pk=recipe.pk %}">Подробнее</a>
+        <a href="{% url 'recipe_edit' pk=recipe.pk %}">Редактировать</a>  {# Добавленная ссылка на редактирование #}
+        <hr>
+    {% endfor %}
+{% endblock %}

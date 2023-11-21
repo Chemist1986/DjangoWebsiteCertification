@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% include 'menu.html' %}
+
+{% block content %}
+  <h2>Логин</h2>
+  <form method="post" class="login-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Логин</button>
+  </form>
+{% endblock %}
