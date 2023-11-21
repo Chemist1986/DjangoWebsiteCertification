@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'Alex05524.pythonanywhere.com',
+    'Chemist198686.pythonanywhere.com',
 ]
 
 INTERNAL_IPS = [
